@@ -1,4 +1,4 @@
-# Straightforward, in-place double linked list implementation in Go
+# Straightforward, in-place doubly linked list implementation in Go
 ## Usage
 ```go
 list := NewDoubleLinkedList()
@@ -65,7 +65,14 @@ OS: Fedora 29
   PASS
   ok      go-doublelinkedlist/doublelinkedlist    120.970s
 </pre>
+Expected run-time:
 
+| Operation     | big-O         | 
+| ------------- |:-------------:| 
+| Append          | O(1)          | 
+| Prepend      | O(1)      | 
+| Find | O(n)      |
+| Delete  | O(n)      | 
 # LICENSE
 This is free and unencumbered software released into the public domain.
 
