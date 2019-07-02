@@ -3,7 +3,7 @@
 ```go
 list := NewDoubleLinkedList()
 for v := 0; v < 100; v++ {
-		list.Append(v)
+    list.Append(v)
 }
 
 list.Delete(5)
@@ -11,7 +11,7 @@ list.Prepend(8)
 
 node := list.Find(6)
 if node == nil {
-	panic("Node not found!")
+    panic("Node not found!")
 }
 
 node.SetNext(nil)
