@@ -21,6 +21,21 @@ fmt.Println(node.Compare(5))
 fmt.Println(node.GetValue())
 
 ```
+# Extendability
+In order to work with custom data-types/structs the needed interface is defined as:
+```go
+type IDoubleLinkedListNode interface {
+	SetValue(value interface{})
+	GetValue() interface{}
+	GetPrevious() IDoubleLinkedListNode
+	GetNext() IDoubleLinkedListNode
+	SetPrevious(prev IDoubleLinkedListNode)
+	SetNext(next IDoubleLinkedListNode)
+	Delete()
+	Append(node IDoubleLinkedListNode)
+	Compare(value interface{}) bool
+}
+```
 
 ## Benchmark
 Hardware: Dell XPS 13 (9360) - i7 8550u/16GB
