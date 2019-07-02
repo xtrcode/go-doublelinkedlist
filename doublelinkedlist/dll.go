@@ -40,6 +40,7 @@ type IDoubleLinkedListNode interface {
 
 type DoubleLinkedList struct {
 	root *DoubleLinkedListNode
+	len  int
 }
 
 type DoubleLinkedListNode struct {
@@ -53,22 +54,29 @@ func NewDoubleLinkedList() *DoubleLinkedList {
 	root.SetNext(root)
 	root.SetPrevious(root)
 
-	return &DoubleLinkedList{root}
+	return &DoubleLinkedList{root, 0}
 }
 
 func (dll *DoubleLinkedList) Append(value interface{}) {
 	dll.root.GetPrevious().Append(NewDoubleLinkedListNode(value))
+	dll.len++
 }
 
 func (dll *DoubleLinkedList) Prepend(value interface{}) {
 	dll.root.Append(NewDoubleLinkedListNode(value))
+	dll.len++
 }
 
 func (dll *DoubleLinkedList) Delete(value interface{}) {
 	n := dll.Find(value)
 	if n != nil {
 		n.Delete()
+		dll.len--
 	}
+}
+
+func (dll *DoubleLinkedList) Len() int {
+	return dll.len
 }
 
 func (dll *DoubleLinkedList) Find(value interface{}) *DoubleLinkedListNode {

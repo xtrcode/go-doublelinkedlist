@@ -41,6 +41,8 @@ func main() {
 	list.Delete(5)
 	list.Prepend(8)
 
+	fmt.Println(list.Len())
+
 	node := list.Find(6)
 	if node == nil {
 		panic("Node not found!")
